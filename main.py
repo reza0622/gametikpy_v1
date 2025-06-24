@@ -5,19 +5,28 @@ from tools import warung
 
 #membuat fungsi menu
 def menu():
-    user_menu = int(input('Menu Pilih Permainan:\n 1. Tikpy\n 2. tools\n\nMasukan Pilihan Kamu: '))
+    user_menu = int(input('Menu Pilih Menu:\n 1. Tikpy\n 2. Warung Tikpy\n 3. Keluar\n\nMasukan Pilihan Kamu: '))
+    
     if user_menu == 1:
         tikpy.mulai()
     elif user_menu == 2:
-        warung.mulai_tools
+        warung.mulai_tools()
+    elif user_menu == 3:
+        pesan_exit()
     else:
-        user_menu = int(input('\n\nMaaf pilihan kamu kosong/tidak ada,\n\nMohon masukan kembali pilihanmu: '))
-        menu()
+        user_menu = int(input('\n\nMaaf pilihan kamu kosong/tidak ada, Pilih menu:\n 1. Tikpy\n 2. Warung Tikpy\n 3. Keluar\n\nMohon masukan kembali pilihanmu: '))
+        if user_menu == 1:
+            tikpy.mulai()
+        elif user_menu == 2:
+            warung.mulai_tools()
+        elif user_menu == 3:
+            pesan_exit()
+        else:
+            print("Maaf pilihan kamu tidak ada!")
 #membuat fungsi main
 def main():
     pesan_welcome()
     menu()
-    pesan_exit()
 
 #untuk mengurutkan/menjalankan fungsi mana dulu yang dieksekusi (if __name__ == '__main__')
 if __name__ == '__main__':

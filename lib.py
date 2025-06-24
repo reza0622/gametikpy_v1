@@ -13,10 +13,10 @@ def pesan_welcome():
 
 # Membuat pesan exit/keluar
 def pesan_exit():
-    pesan = "PERMAINAN SELESAI"
+    pesan = "PROGRAM SELESAI"
     garis = bentuk_garis * (len(pesan)+8)
     
-    print("Permainan akan diberhentikan!!!")
+    print("Program akan diberhentikan!!!")
     sleep(1)
     print("\n" + garis)
     sleep(1)
