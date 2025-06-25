@@ -9,16 +9,22 @@ db = mysql.connector.connect(
 )
 
 #Membuat funtion menambah barang (insert)
-def tambah_barang(kode_barang, nama_barang, stok_barang):
+def tambah_barang(kode_barang, nama_barang, harga_barang, stok_barang):
     cursor = db.cursor()  # Create a cursor object to execute SQL queries
-    sql = "INSERT INTO tbl_barang (kode_barang, nama_barang, stok_barang) VALUES (%s, %s, %s)" #insert sesuai dengan nama tabel barang
-    values = (kode_barang, nama_barang, stok_barang)
+    sql = "INSERT INTO tbl_barang (kode_barang, nama_barang, harga_barang, stok_barang) VALUES (%s, %s, %s, %s)" #insert sesuai dengan nama tabel barang
+    values = (kode_barang, nama_barang, harga_barang, stok_barang)
     cursor.execute(sql, values)  # Execute the SQL query with the provided values
     db.commit()  # Commit the transaction to save changes
     if cursor.rowcount > 0:
-        print(f"Barang {nama_barang} berhasil ditambahkan.") # Print success message
+        print(f"\nBarang {nama_barang} berhasil ditambahkan.\n") # Print success message
     else:
-        print(f"Gagal menambahkan barang {nama_barang}.") # Print failure message
+        print(f"\nGagal menambahkan barang {nama_barang}.\n") # Print failure message
+    
+    #membuat fungsi untuk cek item barang
+def cek_barang():
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM tbl_barang") # Execute a query to select all items from the tbl_barang table
+    return cursor.fetchall() # Fetch all rows from the executed query
     
     # print(f"Barang {nama_barang} berhasil ditambahkan.")
     

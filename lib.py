@@ -25,6 +25,7 @@ def pesan_exit():
     print(garis+"\n\n")
     sleep(1)
     print("Terima Kasih Telah Mencoba Permainan!")
+    exit()  # Exit the program gracefully 
 
 if __name__ == '__main__':
     pesan_welcome()

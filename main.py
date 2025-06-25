@@ -13,6 +13,7 @@ def menu():
         warung_mini.mulai_tools()
     elif user_menu == 3:
         print("Terimakasih Atas Kunjungannya!!!")
+        pesan_exit()
     else:
         user_menu = int(input('\n\nMaaf pilihan kamu kosong/tidak ada, Pilih menu:\n 1. Tikpy\n 2. Warung Tikpy\n 3. Keluar\n\nMohon masukan kembali pilihanmu: '))
         if user_menu == 1:
@@ -21,13 +22,14 @@ def menu():
             warung_mini.mulai_tools()
         elif user_menu == 3:
             print("Terimakasih Atas Kunjungannya!!!")
+            pesan_exit()
         else:
             print("Maaf pilihan kamu tidak ada!")
+            pesan_exit()
 #membuat fungsi main
 def main():
     pesan_welcome()
     menu()
-    pesan_exit()
 #untuk mengurutkan/menjalankan fungsi mana dulu yang dieksekusi (if __name__ == '__main__')
 if __name__ == '__main__':
     main() # => panggil fungsi yang ingin di eksekusi

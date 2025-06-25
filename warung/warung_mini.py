@@ -1,5 +1,5 @@
-import sys
-import os
+import sys # Importing sys to manipulate the Python path
+import os # Importing os to work with file paths
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # Adjust the path to include the parent directory
 
@@ -9,15 +9,22 @@ from services import db # Importing the database service module
 #Membuat fungsi menu untuk menambah barang
 def add():
     # buat variabel untuk inputan user sersuai dengan tabel database
-    kode_barang = input("Masukan Kode Barang: ")
-    nama_barang = input("Masukan Nama Barang: ")
-    stok_barang = int(input("Masukan Stok Barang: "))
+    kode_barang = input("\nMasukan Kode Barang: ")
+    nama_barang = input("\nMasukan Nama Barang: ")
+    harga_barang = int(input("\nMasukan Harga Barang: "))
+    stok_barang = int(input("\nMasukan Stok Barang: "))
     
-    db.tambah_barang(kode_barang, nama_barang, stok_barang) # Call the function to add the item to the database
+    db.tambah_barang(kode_barang, nama_barang, harga_barang, stok_barang) # Call the function to add the item to the database
 
 # Membuat fungsi untuk mengecek barang
-def cek_barang():
-    pass
+def check():
+    items = db.cek_barang()  # Call the function to fetch all items from the database
+    for item in items: # Loop through each item in the fetched items
+        kode_barang = item[1]
+        nama_barang = item[2]
+        harga_barang = item[3]
+        stok_barang = item[4]
+        print(f'\nPersedian Barang:\n\nKode Barang: {kode_barang}\nNama Barang: {nama_barang}\nHarga Barang: Rp {harga_barang}\nStok Barang: {stok_barang}\n') # Print the details of the items
 
 def mulai_tools():
     while True:
@@ -25,7 +32,7 @@ def mulai_tools():
         if menu == 1:
             add()
         elif menu == 2:
-            cek_barang()
+            check()
         elif menu == 3:
             main.menu()
         else:
