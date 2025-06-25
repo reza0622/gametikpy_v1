@@ -1,4 +1,9 @@
-import main
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))) # Adjust the path to include the parent directory
+
+import main 
 from services import db # Importing the database service module
 
 #Membuat fungsi menu untuk menambah barang

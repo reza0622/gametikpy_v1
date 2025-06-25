@@ -11,7 +11,7 @@ db = mysql.connector.connect(
 #Membuat funtion menambah barang (insert)
 def tambah_barang(kode_barang, nama_barang, stok_barang):
     cursor = db.cursor()  # Create a cursor object to execute SQL queries
-    sql = "INSERT INTO barang (kode_barang, nama_barang, stok_barang) VALUES (%s, %s, %s)"
+    sql = "INSERT INTO tbl_barang (kode_barang, nama_barang, stok_barang) VALUES (%s, %s, %s)" #insert sesuai dengan nama tabel barang
     values = (kode_barang, nama_barang, stok_barang)
     cursor.execute(sql, values)  # Execute the SQL query with the provided values
     db.commit()  # Commit the transaction to save changes

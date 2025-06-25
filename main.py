@@ -1,7 +1,7 @@
 import random #libary Random dari python
 from lib import pesan_welcome, pesan_exit
 from games import tikpy
-from tools import warung
+from warung import warung_mini
 
 #membuat fungsi menu
 def menu():
@@ -10,24 +10,24 @@ def menu():
     if user_menu == 1:
         tikpy.mulai()
     elif user_menu == 2:
-        warung.mulai_tools()
+        warung_mini.mulai_tools()
     elif user_menu == 3:
-        pesan_exit()
+        print("Terimakasih Atas Kunjungannya!!!")
     else:
         user_menu = int(input('\n\nMaaf pilihan kamu kosong/tidak ada, Pilih menu:\n 1. Tikpy\n 2. Warung Tikpy\n 3. Keluar\n\nMohon masukan kembali pilihanmu: '))
         if user_menu == 1:
             tikpy.mulai()
         elif user_menu == 2:
-            warung.mulai_tools()
+            warung_mini.mulai_tools()
         elif user_menu == 3:
-            pesan_exit()
+            print("Terimakasih Atas Kunjungannya!!!")
         else:
             print("Maaf pilihan kamu tidak ada!")
 #membuat fungsi main
 def main():
     pesan_welcome()
     menu()
-
+    pesan_exit()
 #untuk mengurutkan/menjalankan fungsi mana dulu yang dieksekusi (if __name__ == '__main__')
 if __name__ == '__main__':
     main() # => panggil fungsi yang ingin di eksekusi
